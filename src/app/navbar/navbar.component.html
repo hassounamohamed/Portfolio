@@ -1,0 +1,32 @@
+<mat-toolbar class="toolbar" [ngClass]="{ scrolled: scrolled }">
+  <!-- Logo Section -->
+  <div class="logo-section">
+    <button mat-icon-button routerLink="/" aria-label="Home">
+      <p class="m">M</p>
+      <p class="h">H</p>
+    </button>
+  </div>
+
+  <!-- Desktop Nav -->
+  <nav class="nav-links" *ngIf="!isMobile">
+    <a mat-button routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a mat-button routerLink="/projects" routerLinkActive="active-link">Projects</a>
+    <a mat-button routerLink="/skills" routerLinkActive="active-link">Skills</a>
+    <a mat-button routerLink="/contact" routerLinkActive="active-link">Contact</a>
+    
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-controls" *ngIf="isMobile">
+    <button mat-icon-button (click)="toggleMenu()" aria-label="Menu Toggle">
+      <mat-icon>{{ showMobileMenu ? 'close' : 'menu' }}</mat-icon>
+    </button>
+  </div>
+
+  <div class="mobile-menu" *ngIf="showMobileMenu && isMobile">
+    <a mat-button routerLink="/" (click)="toggleMenu()" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a mat-button routerLink="/projects" (click)="toggleMenu()" routerLinkActive="active-link">Projects</a>
+    <a mat-button routerLink="/skills" (click)="toggleMenu()" routerLinkActive="active-link">Skills</a>
+    <a mat-button routerLink="/contact" (click)="toggleMenu()" routerLinkActive="active-link">Contact</a>
+  </div>
+</mat-toolbar>

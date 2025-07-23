@@ -1,0 +1,155 @@
+/* Root Navbar Styles */
+.toolbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5rem;
+  height: 80px;
+  background-color: rgba(0, 0, 0, 0.25); /* Transparent dark */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s ease-in-out;
+}
+
+/* When scrolling */
+.toolbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(16px);
+}
+
+/* Logo Section */
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.logo-section button {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+}
+
+.m, .h {
+  font-size: 3rem;
+  font-weight: 800;
+  font-family: 'Segoe UI', sans-serif;
+  transition: transform 0.4s ease;
+}
+
+.m {
+  color: white;
+}
+
+.h {
+  color: #4aa8ff; 
+  margin-left: -8px;
+}
+
+.logo-section button:hover .m,
+.logo-section button:hover .h {
+  transform: scale(1.1) rotate(2deg);
+}
+
+/* Desktop Navigation */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.nav-links a,
+.mobile-menu a {
+  color: #eaeaea; /* light grey */
+  font-weight: 500; /* semi-bold */
+  font-size: 1rem; /* readable size */
+  letter-spacing: 0.5px;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+.nav-links a:hover,
+.mobile-menu a:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.03);
+}
+
+/* Active link styling */
+.active-link {
+  color: white;
+  font-weight: 600;
+  border-bottom: 2px solid white;
+}
+
+
+.active-link {
+  background: rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+}
+
+/* Mobile */
+.mobile-controls {
+  display: flex;
+  align-items: center;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  z-index: 999;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.mobile-menu a {
+  padding: 1rem;
+  color: white;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.mobile-menu a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .toolbar {
+    padding: 0 1rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .m, .h {
+    font-size: 1.3rem;
+  }
+}
+
+/* Light & Dark Theme */
+:host-context(body.dark-mode) {
+  --text-color: white;
+}
+
+:host-context(body.light-mode) {
+  --text-color: black;
+}
