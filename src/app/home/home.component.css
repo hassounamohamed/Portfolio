@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -5,6 +9,7 @@ body {
   background-color: #000010;
   color: #fff;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 .hero {
@@ -13,87 +18,97 @@ body {
   justify-content: space-between;
   align-items: center;
   min-height: 100vh;
-  padding: 3rem 5%;
+  padding: 4rem 6%;
   position: relative;
   z-index: 1;
+  animation: fadeInUp 1.5s ease-in-out;
 }
 
 .hero-left {
   flex: 1 1 500px;
   z-index: 2;
+  animation: slideInLeft 1.5s ease;
 }
 
 .subtitle {
-  color: #ccc;
-  font-size: 1rem;
+  color: #aaa;
+  font-size: 1.6rem;
   margin-bottom: 0.5rem;
+  letter-spacing: 1px;
 }
 
 .intro-title {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   font-weight: 300;
   margin: 0;
   color: #fff;
 }
 
 .name {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: bold;
   color: #3399ff;
+  text-shadow: 0 0 10px rgba(51, 153, 255, 0.6);
 }
 
 .wave {
   animation: wave 2s infinite;
   display: inline-block;
+  font-size: 2.5rem;
 }
 
 .description {
-  font-size: 1rem;
-  margin: 1.5rem 0;
+  font-size: 1.2rem;
+  margin: 2rem 0;
   color: #ddd;
-  max-width: 600px;
-  line-height: 1.7;
+  max-width: 650px;
+  line-height: 1.8;
 }
 
 .info p {
-  font-size: 2rem;
-  margin: 0.3rem 0;
+  font-size: 1.3rem;
+  margin: 0.5rem 0;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  color: blue;
+  gap: 0.8rem;
+  color: #fff;
 }
 
 .buttons {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.2rem;
 }
 
 .btn {
   background: #1a1a2e;
   color: white;
-  padding: 0.8rem 1.5rem;
+  padding: 0.8rem 1.8rem;
   border: none;
   border-radius: 30px;
   text-decoration: none;
-  transition: background 0.3s ease;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #3399ff50;
 }
 
 .btn:hover {
   background: #3399ff;
+  color: #fff;
+  box-shadow: 0 0 15px #3399ff;
 }
 
 .social-icon {
   color: white;
-  font-size: 3rem;
+  font-size: 1.8rem;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .social-icon:hover {
   color: #3399ff;
+  transform: scale(1.1);
 }
 
 .hero-right {
@@ -102,37 +117,24 @@ body {
   justify-content: center;
   align-items: center;
   z-index: 2;
+  animation: slideInRight 1.5s ease;
 }
 
 .profile-pic {
-  width: 400px;
-  height: 400px;
+  width: 320px;
+  height: 320px;
   border-radius: 50%;
   border: 6px solid white;
-  box-shadow: 0 0 20px #3399ff;
+  box-shadow: 0 0 25px #3399ff;
   object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
-.stars-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(white 1px, transparent 1px),
-              radial-gradient(white 1px, transparent 1px);
-  background-position: 0 0, 25px 25px;
-  background-size: 50px 50px;
-  animation: starsMove 100s linear infinite;
-  opacity: 0.2;
-  z-index: 0;
+.profile-pic:hover {
+  transform: scale(1.03);
 }
 
-@keyframes starsMove {
-  from { transform: translate(0, 0); }
-  to { transform: translate(-100px, -200px); }
-}
-
+/* Wave animation */
 @keyframes wave {
   0% { transform: rotate(0deg); }
   10% { transform: rotate(14deg); }
@@ -142,4 +144,38 @@ body {
   50% { transform: rotate(10deg); }
   60% { transform: rotate(0deg); }
   100% { transform: rotate(0deg); }
+}
+
+/* Entrance animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
