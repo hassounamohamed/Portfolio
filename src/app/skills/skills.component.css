@@ -1,0 +1,317 @@
+:root {
+  --bg-dark: #071428;
+  --bg-mid: #07273f;
+  --card-bg: #0f2a40;
+  --accent: #1780ff;
+  --accent-light: #4da1ff;
+  --glass: rgba(255, 255, 255, 0.08);
+  --radius: 20px;
+  --transition: all 0.4s cubic-bezier(0.2, 0.9, 0.1, 1);
+}
+
+/* Modern reset with improved accessibility */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: 
+    radial-gradient(ellipse at 10% 10%, #0e3350 0%, #09121c 25%, #000 60%) fixed,
+    linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.28)) fixed;
+  color: #e6f1ff;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  padding: 2rem 1.5rem;
+  overflow-x: hidden;
+}
+
+/* Enhanced star field with animation */
+.star-field {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.8;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255,255,255,0.9) 0.6px, transparent 1px),
+    radial-gradient(circle at 90% 40%, rgba(255,255,255,0.85) 0.6px, transparent 1px),
+    radial-gradient(circle at 30% 70%, rgba(255,255,255,0.75) 0.6px, transparent 1px),
+    radial-gradient(circle at 80% 80%, rgba(255,255,255,0.6) 0.6px, transparent 1px),
+    radial-gradient(circle at 50% 10%, rgba(255,255,255,0.5) 0.6px, transparent 1px);
+  background-size: 200% 200%;
+  mix-blend-mode: overlay;
+  filter: blur(0.8px);
+  animation: starMove 60s linear infinite alternate;
+}
+
+@keyframes starMove {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+.container {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fadeIn 1s ease-out;
+}
+
+header h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  text-shadow: 0 4px 20px rgba(23, 128, 255, 0.15);
+}
+
+header p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: rgba(223, 233, 243, 0.85);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+/* Modern grid layout */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+/* Enhanced card design with glass morphism */
+.card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 
+    0 8px 32px rgba(2, 8, 18, 0.6),
+    inset 0 1px 1px rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: var(--transition);
+  min-height: 360px;
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(23, 128, 255, 0.1), transparent);
+  opacity: 0;
+  transition: var(--transition);
+  z-index: -1;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 12px 40px rgba(2, 8, 18, 0.8),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card .preview {
+  width: 100%;
+  background: var(--glass);
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  overflow: hidden;
+  transition: var(--transition);
+  margin-bottom: 1rem;
+}
+
+.card:hover .preview {
+  transform: translateZ(10px);
+  box-shadow: 0 8px 24px rgba(2, 8, 18, 0.4);
+}
+
+.card img {
+  max-width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  border-radius: 8px;
+  filter: drop-shadow(0 4px 12px rgba(2, 8, 18, 0.3));
+  transition: var(--transition);
+}
+
+.card:hover img {
+  transform: scale(1.03);
+}
+
+.meta {
+  width: 100%;
+  text-align: center;
+  margin-top: auto;
+}
+
+.meta h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+  color: #f0f7ff;
+  font-weight: 600;
+}
+
+.meta p {
+  font-size: 0.95rem;
+  color: rgba(223, 233, 243, 0.8);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+/* Modern tag design */
+.meta .tag {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  background: linear-gradient(90deg, rgba(23, 128, 255, 0.15), rgba(23, 128, 255, 0.08));
+  color: var(--accent-light);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.3px;
+  border: 1px solid rgba(23, 128, 255, 0.2);
+  transition: var(--transition);
+}
+
+.card:hover .tag {
+  background: linear-gradient(90deg, rgba(23, 128, 255, 0.25), rgba(23, 128, 255, 0.15));
+  transform: translateY(-2px);
+}
+
+/* Modern footer with gradient border */
+.section-footer {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background: linear-gradient(90deg, rgba(11, 43, 63, 0.7), rgba(3, 25, 43, 0.6));
+  border-radius: var(--radius);
+  text-align: center;
+  color: rgba(230, 241, 255, 0.9);
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+.section-footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(23, 128, 255, 0.4), rgba(23, 128, 255, 0.1));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive design with modern breakpoints */
+@media (max-width: 1024px) {
+  .cards {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 1.5rem 1rem;
+  }
+  
+  header {
+    margin-bottom: 2rem;
+  }
+  
+  .cards {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 2.2rem;
+  }
+  
+  header p {
+    font-size: 1rem;
+  }
+  
+  .card {
+    min-height: 320px;
+    padding: 1.25rem;
+  }
+  
+  .card .preview {
+    min-height: 180px;
+  }
+}
+
+/* Accessibility improvements */
+[aria-hidden="true"] {
+  display: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-light);
+  outline-offset: 3px;
+}
+
+/* Smooth scroll behavior */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  .card, .card::before, .card img, .tag {
+    transition: none !important;
+  }
+  
+  .star-field {
+    animation: none;
+  }
+}
