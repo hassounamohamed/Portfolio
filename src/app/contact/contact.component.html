@@ -1,1 +1,54 @@
-<p>contact works!</p>
+<section class="contact-section">
+  <h1>Let's Connect! 📩</h1>
+  <h2>
+    Have a question, suggestion, or just want to chat?  
+    Shoot me a message using the contact form below, and I’ll get back to you in no time! 😊
+  </h2>
+
+  <!-- Social Links -->
+  <div class="social-links">
+    <a href="https://facebook.com/mohamed.hassouna.859153" target="_blank" class="social-link">
+      <i class="fab fa-facebook"></i>
+    </a>
+    <a href="https://www.instagram.com/mohamed._.hassouna/" target="_blank" class="social-link">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/mohamedhassouna/" target="_blank" class="social-link">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://github.com/hassounamohamed" target="_blank" class="social-link">
+      <i class="fab fa-github"></i>
+    </a>
+  </div>
+
+  <!-- Contact Form -->
+  <form class="contact-form">
+    <mat-form-field appearance="outline">
+      <mat-label>Full Name</mat-label>
+      <input matInput placeholder="Enter your full name">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>E-mail</mat-label>
+      <input matInput type="email" placeholder="example@email.com">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Service</mat-label>
+      <mat-select>
+        <mat-option value="">--- Select Service ---</mat-option>
+        <mat-option value="web">Web Project</mat-option>
+        <mat-option value="design">Backend Project </mat-option>
+        <mat-option value="consulting">Mobile App</mat-option>
+        <mat-option value="consulting">Other</mat-option>
+          </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Message</mat-label>
+      <textarea matInput placeholder="Write your message here..."></textarea>
+    </mat-form-field>
+
+    <button matButton="elevated" type="submit">Get In Touch</button>
+  </form>
+</section>
