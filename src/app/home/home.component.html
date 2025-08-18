@@ -144,3 +144,41 @@
 
   </div>
 </section>
+
+
+<section class="feedback">
+  <h1>Feedback 💬</h1>
+  <h4>Feedback and Testimonials from Satisfied Clients <span>(Click To Expand)</span>:</h4>
+
+  <div class="feedback-container">
+    <div 
+      class="feedback-card" 
+      *ngFor="let fb of feedbacks" 
+      (click)="openFeedback(fb)">
+      <p class="name">{{ fb.name }}</p> 
+      <p class="role">{{ fb.role }}
+      <p class="message">{{ fb.message | slice:0:80 }}...</p>
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal" *ngIf="isModalOpen">
+  <div class="modal-content">
+    <span class="close" (click)="closeFeedback()">&times;</span>
+    <h2>{{ currentName }}</h2> 
+    <h4>{{ currentRole }}</h4>
+    <div class="feedback-text">{{ currentMessage }}</div>
+  </div>
+</div>
+</section>
+
+<!-- Modal -->
+<div class="modal" *ngIf="isModalOpen">
+  <div class="modal-content">
+    <span class="close" (click)="closeFeedback()">&times;</span>
+    <h2>{{ currentName }}</h2> 
+    <h4>{{ currentRole }}</h4>
+    <div class="feedback-text">{{ currentMessage }}</div>
+  </div>
+</div>
