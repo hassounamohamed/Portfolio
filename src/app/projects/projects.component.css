@@ -1,0 +1,139 @@
+
+.projects {
+  padding: 4rem 2rem;
+  color: #fff;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.projects h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #00d4ff;
+}
+
+.projects h2 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  color: #dcdcdc;
+}
+
+.project-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: #1e2a38;
+  border-radius: 20px;
+  padding: 1.5rem;
+  text-align: left;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  border-radius: 15px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.project-card h3 {
+  font-size: 1.4rem;
+  color: #00d4ff;
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  color: #cfd8dc;
+  margin-bottom: 0.5rem;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.tech-stack span {
+  background: #00d4ff1a;
+  color: #00d4ff;
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  border-radius: 12px;
+}
+
+.social-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: #00d4ff;
+  transition: color 0.3s ease;
+}
+
+.social-link:hover {
+  color: #00ffcc;
+}
+.github-section {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.github-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(135deg, #1e2a38, #0d1b2a);
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.github-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  background: linear-gradient(135deg, #0d1b2a, #1e2a38);
+}
+
+.github-card i {
+  font-size: 2rem;
+  color: #00d4ff;
+  transition: color 0.3s ease;
+}
+
+.github-card:hover i {
+  color: #00ffcc;
+}
+
+.github-text {
+  text-align: left;
+}
+
+.github-text p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #cfd8dc;
+}
+
+.github-text h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #00d4ff;
+}
