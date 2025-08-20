@@ -22,33 +22,62 @@
   </div>
 
   <!-- Contact Form -->
-  <form class="contact-form">
-    <mat-form-field appearance="outline">
-      <mat-label>Full Name</mat-label>
-      <input matInput placeholder="Enter your full name">
-    </mat-form-field>
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+  <mat-form-field appearance="outline">
+    <mat-label>Full Name</mat-label>
+    <input matInput 
+           placeholder="Enter your full name" 
+           formControlName="fullName">
+    <mat-error *ngIf="contactForm.get('fullName')?.hasError('required') && contactForm.get('fullName')?.touched">
+      Full name is required
+    </mat-error>
+  </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>E-mail</mat-label>
-      <input matInput type="email" placeholder="example@email.com">
-    </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>E-mail</mat-label>
+    <input matInput 
+           type="email" 
+           placeholder="example@email.com" 
+           formControlName="email">
+    <mat-error *ngIf="contactForm.get('email')?.hasError('required') && contactForm.get('email')?.touched">
+      Email is required
+    </mat-error>
+    <mat-error *ngIf="contactForm.get('email')?.hasError('email') && contactForm.get('email')?.touched">
+      Please enter a valid email
+    </mat-error>
+  </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Service</mat-label>
-      <mat-select>
-        <mat-option value="">--- Select Service ---</mat-option>
-        <mat-option value="web">Web Project</mat-option>
-        <mat-option value="design">Backend Project </mat-option>
-        <mat-option value="consulting">Mobile App</mat-option>
-        <mat-option value="consulting">Other</mat-option>
-          </mat-select>
-    </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Service</mat-label>
+    <mat-select formControlName="service">
+      <mat-option value="">--- Select Service ---</mat-option>
+      <mat-option value="web">Web Project</mat-option>
+      <mat-option value="backend">Backend Project</mat-option>
+      <mat-option value="mobile">Mobile App</mat-option>
+      <mat-option value="other">Other</mat-option>
+    </mat-select>
+    <mat-error *ngIf="contactForm.get('service')?.hasError('required') && contactForm.get('service')?.touched">
+      Please select a service
+    </mat-error>
+  </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Message</mat-label>
-      <textarea matInput placeholder="Write your message here..."></textarea>
-    </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Message</mat-label>
+    <textarea matInput 
+              placeholder="Write your message here..." 
+              formControlName="message"
+              rows="4">
+    </textarea>
+    <mat-error *ngIf="contactForm.get('message')?.hasError('required') && contactForm.get('message')?.touched">
+      Message is required
+    </mat-error>
+  </mat-form-field>
 
-    <button matButton="elevated" type="submit">Get In Touch</button>
-  </form>
+  <button mat-raised-button 
+          color="primary" 
+          type="submit"
+          [disabled]="contactForm.invalid">
+    Get In Touch
+  </button>
+</form>
 </section>
