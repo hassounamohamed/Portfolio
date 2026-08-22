@@ -13,11 +13,16 @@
     <a mat-button routerLink="/projects" routerLinkActive="active-link">Projects</a>
     <a mat-button routerLink="/skills" routerLinkActive="active-link">Skills</a>
     <a mat-button routerLink="/contact" routerLinkActive="active-link">Contact</a>
-    
+    <button mat-icon-button (click)="toggleDarkMode()" aria-label="Toggle Theme" class="theme-toggle">
+      <i class="fa-solid" [ngClass]="isDarkMode ? 'fa-sun' : 'fa-moon'"></i>
+    </button>
   </nav>
 
   <!-- Mobile Nav -->
   <div class="mobile-controls" *ngIf="isMobile">
+    <button mat-icon-button (click)="toggleDarkMode()" aria-label="Toggle Theme" class="theme-toggle" style="margin-right: 8px;">
+      <i class="fa-solid" [ngClass]="isDarkMode ? 'fa-sun' : 'fa-moon'"></i>
+    </button>
     <button mat-icon-button (click)="toggleMenu()" aria-label="Menu Toggle">
       <mat-icon>{{ showMobileMenu ? 'close' : 'menu' }}</mat-icon>
     </button>

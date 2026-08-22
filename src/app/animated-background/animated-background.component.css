@@ -1,9 +1,26 @@
-canvas {
+.bg-mesh {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: -1;
   width: 100vw;
   height: 100vh;
-  background-color: #000;
+  z-index: -1;
+  background-color: var(--bg-color);
+  background-image: 
+    radial-gradient(circle at 15% 50%, var(--mesh-bg-1) 0%, transparent 50%),
+    radial-gradient(circle at 85% 30%, var(--mesh-bg-2) 0%, transparent 50%);
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.bg-mesh::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    linear-gradient(var(--mesh-lines) 1px, transparent 1px),
+    linear-gradient(90deg, var(--mesh-lines) 1px, transparent 1px);
+  background-size: 30px 30px;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
 }

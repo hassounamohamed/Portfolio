@@ -1,11 +1,9 @@
-
-
 /* Container */
 .container {
   max-width: 1200px;
   margin: auto;
   padding: 6rem;
-  color: white;
+  color: var(--text-primary);
   font-family: 'Poppins', sans-serif;
 }
 
@@ -16,14 +14,12 @@ header {
   animation: fadeIn 1s ease-in-out;
 }
 header h1 {
-  
   font-size: 2.5rem;
-  color: #00d4ff;
-
+  color: var(--primary-color);
 }
 header p {
-  font-size: 2rem;
-  color: #ccc;
+  font-size: 1.5rem;
+  color: var(--text-secondary);
 }
 
 /* Cards */
@@ -34,101 +30,137 @@ header p {
   margin-bottom: 5rem;
 }
 .card {
-  background: rgba(112, 79, 201, 0.05);
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
   backdrop-filter: blur(10px);
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(44, 10, 139, 0.4);
+  box-shadow: var(--card-shadow);
   transform: translateY(20px);
   opacity: 0;
   animation: fadeUp 0.8s ease forwards;
 }
-.card:hover {
-  transform: scale(1.05);
-  transition: 0.3s;
-}
 .preview img {
   width: 100%;
-  height: 500%;
-
+  height: auto;
+  max-width: 100%;
+  display: block;
 }
 .meta {
   padding: 1rem;
+  color: var(--text-secondary);
 }
 .tag {
   display: inline-block;
-  background: #4d37b0;
-  color: white;
+  background: rgba(0, 120, 255, 0.15);
+  color: var(--primary-color);
   padding: 0.3rem 0.7rem;
   border-radius: 8px;
   font-size: 0.8rem;
 }
 
 /* Skills Section */
-.skills {
+.skills-grid-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 7rem;
+  flex-direction: column;
+  gap: 3rem;
+  margin-bottom: 5rem;
+}
+
+.skills-grid-container h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.skills-grid-container h2 i {
+  margin-right: 0.5rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.5rem;
   justify-content: center;
 }
 
 .skill-item {
-  width: 150px;
-  height: 150px;
-  border-radius: 20px;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 20px rgba(0, 102, 255, 0.5);
-  transition: transform 0.3s, box-shadow 0.3s;
-  position: relative;
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
+  color: var(--text-secondary);
 }
 
-.skill-item img {
-  width: 100px;
-  height: 100px;
-  border-radius: 10px;
-  padding: 6rem;
-}
-
-.skill-item span {
-  margin-top: 5px;
-  font-size: 0.85rem;
-  color: white;
+.skill-item i {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 0.8rem;
+  transition: transform 0.3s ease;
 }
 
 .skill-item:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 35px rgba(0, 102, 255, 0.8);
+  transform: translateY(-5px);
+  background: var(--surface-hover);
+  color: var(--text-primary);
+  box-shadow: var(--card-shadow-hover);
 }
 
-/* Animations */
-@keyframes fadeUp {
-  to { transform: translateY(0); opacity: 1; }
+.skill-item:hover i {
+  transform: scale(1.1);
 }
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .section-description {
   text-align: center;
   margin-bottom: 2rem;
   font-size: 1.2rem;
-  color: #ccc;
-  padding: 5rem;
-}
-strong {
-  
-  font-size: 2.5rem;
-  color :rgb(74, 74, 184);
-  text-align: center;
-  display: block;
+  color: var(--text-secondary);
+  padding: 5rem 2rem 2rem 2rem;
 }
 
-.frontend, .backend, .tools {
-  margin-bottom: 5rem;
-  padding: 5rem;
+.section-description strong {
+  font-size: 2rem;
+  color: var(--primary-color);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .cards { gap: 4rem; }
+}
+
+@media (max-width: 768px) {
+  .container { padding: 3.5rem 1.2rem; }
+  header p { font-size: 1.25rem; }
+  .cards { gap: 2.5rem; }
+  .skills-grid { grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 1rem; }
+  .skill-item { padding: 1rem; }
+  .skill-item i { font-size: 2rem; }
+  .section-description { padding: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 2rem 1rem; }
+  header h1 { font-size: 1.6rem; }
+  header p { font-size: 1rem; }
+  .cards { gap: 1.2rem; }
+  .card:hover { transform: none; }
 }

@@ -1,15 +1,16 @@
 .footer {
   padding: 3rem 1rem;
   text-align: center;
-  background-color: #0f1c2e; 
-  color: #b0bec5;
+  background-color: var(--surface-color);
+  border-top: 1px solid var(--border-color);
+  color: var(--text-secondary);
   font-family: 'Arial', sans-serif;
 }
 
 .footer-title {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #2196f3;
+  color: var(--primary-color);
   margin-bottom: 0.5rem;
 }
 
@@ -17,7 +18,7 @@
   font-size: 1.1rem;
   max-width: 600px;
   margin: 0 auto 2rem;
-  color: #b0bec5;
+  color: var(--text-secondary);
 }
 
 .contact-info {
@@ -34,26 +35,25 @@
   gap: 0.7rem;
   font-size: 1.3rem;
   font-weight: bold;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .contact-icon {
-  color: #2196f3;
+  color: var(--primary-color);
   font-size: 1.4rem;
 }
 
 .copy-btn {
   background: none;
   border: none;
-  color: #2196f3;
+  color: var(--primary-color);
   font-size: 1.2rem;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .copy-btn:hover {
   transform: scale(1.2);
-  box-shadow: 0 0 8px #2196f3;
 }
 
 .social-section {
@@ -63,7 +63,7 @@
 .social-title {
   font-size: 1rem;
   margin-bottom: 1rem;
-  color: #b0bec5;
+  color: var(--text-secondary);
 }
 
 .social-links {
@@ -74,14 +74,14 @@
 
 .social-link {
   font-size: 2.5rem;
-  color: #2196f3;
+  color: var(--primary-color);
   padding: 0.5rem;
   transition: all 0.3s ease;
 }
 
 .social-link:hover {
-  background-color: #2196f3;
-  color: #0f1c2e;
+  background-color: var(--primary-color);
+  color: var(--bg-color);
   transform: scale(1.1);
   border-radius: 50%;
 }
@@ -89,7 +89,7 @@
 .copyright {
   margin-top: 2rem;
   font-size: 0.9rem;
-  color: #90a4ae;
+  color: var(--text-secondary);
   opacity: 0.7;
 }
 

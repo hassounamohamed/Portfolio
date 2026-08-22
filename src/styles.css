@@ -1,0 +1,91 @@
+/* Global Design System Variables */
+:root {
+  /* Light Theme Colors */
+  --bg-color: #ffffff;
+  --surface-color: #f8f9fa;
+  --surface-hover: #e9ecef;
+  --text-primary: #1a1a2e;
+  --text-secondary: #4a5568;
+  --primary-color: #0078ff;
+  --primary-hover: #0056b3;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.1);
+  --mesh-bg-1: rgba(0, 120, 255, 0.05);
+  --mesh-bg-2: rgba(51, 153, 255, 0.04);
+  --mesh-lines: rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="dark"] {
+  /* Dark Theme Colors */
+  --bg-color: #000010;
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-hover: rgba(255, 255, 255, 0.08);
+  --text-primary: #ffffff;
+  --text-secondary: #a0aec0;
+  --primary-color: #3399ff;
+  --primary-hover: #66b2ff;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --card-shadow-hover: 0 10px 30px rgba(0, 191, 255, 0.2);
+  --mesh-bg-1: rgba(0, 191, 255, 0.08);
+  --mesh-bg-2: rgba(51, 153, 255, 0.06);
+  --mesh-lines: rgba(255, 255, 255, 0.03);
+}
+
+/* Box sizing and sensible defaults */
+*, *::before, *::after {
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+html, body, app-root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-top: 80px; /* matches .toolbar height */
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Help prevent unexpected flex overflow on small screens */
+* { min-width: 0; }
+
+/* Make media elements scale down on small screens */
+img, picture, video, canvas, svg {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+/* Utility: center content and limit width by default */
+.container, app-root > .container {
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+/* Small tweaks for very small devices */
+@media (max-width: 480px) {
+	html { font-size: 14px; }
+}

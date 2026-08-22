@@ -1,7 +1,7 @@
 
 .projects {
   padding: 4rem 2rem;
-  color: #fff;
+  color: var(--text-primary);
   text-align: center;
   font-family: 'Poppins', sans-serif;
 }
@@ -10,14 +10,27 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: #00d4ff;
+  color: var(--primary-color);
+}
+
+.projects h1 i {
+  margin-right: 0.5rem;
 }
 
 .projects h2 {
   font-size: 2rem;
   font-weight: 400;
   margin-bottom: 2rem;
-  color: #dcdcdc;
+  color: var(--text-secondary);
+}
+
+.projects-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .project-container {
@@ -27,17 +40,18 @@
 }
 
 .project-card {
-  background: #1e2a38;
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
   border-radius: 20px;
   padding: 1.5rem;
   text-align: left;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  box-shadow: var(--card-shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+  box-shadow: var(--card-shadow-hover);
 }
 
 .project-card img {
@@ -48,15 +62,15 @@
   margin-bottom: 1rem;
 }
 
-.project-card h3 {
+.project-card h2 {
   font-size: 1.4rem;
-  color: #00d4ff;
+  color: var(--primary-color);
   margin-bottom: 0.5rem;
 }
 
 .project-card p {
   font-size: 0.95rem;
-  color: #cfd8dc;
+  color: var(--text-secondary);
   margin-bottom: 0.5rem;
 }
 
@@ -68,24 +82,26 @@
 }
 
 .tech-stack span {
-  background: #00d4ff1a;
-  color: #00d4ff;
+  background: rgba(0, 120, 255, 0.1);
+  color: var(--primary-color);
   font-size: 0.8rem;
   padding: 5px 10px;
   border-radius: 12px;
+  border: 1px solid var(--border-color);
 }
 
 .social-link {
   display: inline-block;
   margin-top: 1rem;
   font-size: 1.5rem;
-  color: #00d4ff;
+  color: var(--primary-color);
   transition: color 0.3s ease;
 }
 
 .social-link:hover {
-  color: #00ffcc;
+  color: var(--primary-hover);
 }
+
 .github-section {
   margin-top: 3rem;
   text-align: center;
@@ -95,30 +111,31 @@
   display: inline-flex;
   align-items: center;
   gap: 1rem;
-  background: linear-gradient(135deg, #1e2a38, #0d1b2a);
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
   padding: 1rem 2rem;
   border-radius: 15px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+  box-shadow: var(--card-shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-decoration: none;
-  color: #fff;
+  color: var(--text-primary);
   font-family: 'Poppins', sans-serif;
 }
 
 .github-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-  background: linear-gradient(135deg, #0d1b2a, #1e2a38);
+  box-shadow: var(--card-shadow-hover);
+  background: var(--surface-hover);
 }
 
 .github-card i {
   font-size: 2rem;
-  color: #00d4ff;
+  color: var(--primary-color);
   transition: color 0.3s ease;
 }
 
 .github-card:hover i {
-  color: #00ffcc;
+  color: var(--primary-hover);
 }
 
 .github-text {
@@ -128,12 +145,12 @@
 .github-text p {
   margin: 0;
   font-size: 0.9rem;
-  color: #cfd8dc;
+  color: var(--text-secondary);
 }
 
-.github-text h3 {
+.github-text h2 {
   margin: 0;
   font-size: 1.2rem;
   font-weight: 600;
-  color: #00d4ff;
+  color: var(--primary-color);
 }
