@@ -36,12 +36,22 @@ export class ContactComponent {
     });
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.contactForm.valid) {
+      const formValue = this.contactForm.value;
+
       emailjs.send(
         environment.emailjs.serviceId,
         environment.emailjs.templateId,
-        this.contactForm.value,
+        {
+          ...formValue,
+          to_email: environment.emailjs.recipientEmail,
+          reply_to: formValue.email,
+          from_name: formValue.fullName,
+          user_name: formValue.fullName,
+          user_email: formValue.email,
+          service_name: formValue.service
+        },
         environment.emailjs.publicKey
       ).then(
         () => {
@@ -50,7 +60,7 @@ export class ContactComponent {
         },
         (err) => {
           this.snackBar.open('Error sending message. Please try again.', 'Close', { duration: 3000, panelClass: ['error-snackbar'] });
-          console.error(err);
+          console.error('EmailJS error:', err?.status, err?.text ?? err);
         }
       );
     } else {

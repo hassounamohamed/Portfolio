@@ -401,7 +401,16 @@
   margin: 0 0 0.2rem 0;
 }
 
+.timeline-header h5 {
+  margin: 0.35rem 0 0.65rem;
+  color: var(--primary-color);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
 .timeline-date {
+  display: block;
   font-size: 0.9rem;
   color: var(--primary-color);
   font-weight: 500;
