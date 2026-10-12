@@ -38,6 +38,12 @@
   border: none;
 }
 
+.logo {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
 .m, .h {
   font-size: 3rem;
   font-weight: 800;
@@ -142,6 +148,11 @@
 }
 
 @media (max-width: 480px) {
+  .logo {
+    width: 48px;
+    height: 48px;
+  }
+
   .m, .h {
     font-size: 1.3rem;
   }
