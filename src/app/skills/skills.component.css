@@ -47,8 +47,14 @@ header p {
   display: block;
 }
 .meta {
-  padding: 1rem;
+  padding: 1.2rem;
   color: var(--text-secondary);
+}
+.meta p {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin: 0 0 0.6rem 0;
 }
 .tag {
   display: inline-block;

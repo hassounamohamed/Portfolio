@@ -2,7 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -22,8 +22,10 @@ export class NavbarComponent implements OnInit {
   isMobile = false;
   showMobileMenu = false;
   isScrolled = false;
-  isDarkMode = false;
+  isDarkMode = true;
   scrolled = false;
+
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.checkScreenSize();
@@ -38,7 +40,8 @@ export class NavbarComponent implements OnInit {
 
   @HostListener('window:scroll')
   checkScroll() {
-    this.isScrolled = window.scrollY > 10;
+    this.isScrolled = window.scrollY > 15;
+    this.scrolled = window.scrollY > 15;
   }
 
   toggleMenu() {
@@ -46,7 +49,7 @@ export class NavbarComponent implements OnInit {
   }
 
   checkScreenSize() {
-    this.isMobile = window.innerWidth < 768;
+    this.isMobile = window.innerWidth < 860;
     if (!this.isMobile) {
       this.showMobileMenu = false;
     }
@@ -64,14 +67,31 @@ export class NavbarComponent implements OnInit {
     if (savedTheme) {
       this.isDarkMode = savedTheme === 'dark';
     } else {
-      this.isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      this.isDarkMode = true;
     }
     document.documentElement.setAttribute('data-theme', this.isDarkMode ? 'dark' : 'light');
   }
 
-  @HostListener('window:scroll', [])
-onWindowScroll() {
-  this.scrolled = window.scrollY > 20;
-}
+  scrollToExperience(event?: Event) {
+    if (event) {
+      event.preventDefault();
+    }
+    this.showMobileMenu = false;
+    if (this.router.url === '/' || this.router.url === '') {
+      const el = document.getElementById('experience');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      this.router.navigate(['/']).then(() => {
+        setTimeout(() => {
+          const el = document.getElementById('experience');
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 150);
+      });
+    }
+  }
 }
 

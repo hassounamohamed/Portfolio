@@ -75,23 +75,22 @@ mat-form-field {
 
 
 mat-form-field mat-select {
-    color: #fff;
+  color: var(--text-primary);
 }
 /* Text the user types */
-.mat-mdc-form-field .mat-mdc-input-element {
-  color: #fff !important;     /* input + textarea */
-  caret-color: #fff;           /* cursor color */
+.mat-mdc-form-field .mat-mdc-input-element,
+.mat-mdc-form-field textarea {
+  color: var(--text-primary) !important;     /* input + textarea */
+  caret-color: var(--primary-color);           /* cursor color */
 }
 
-
-.mat-mdc-form-field .mat-mdc-input-element::placeholder {
-  color: rgba(255,255,255,0.6) !important;
+.mat-mdc-form-field .mat-mdc-input-element::placeholder,
+.mat-mdc-form-field textarea::placeholder {
+  color: var(--text-muted) !important;
 }
-
-
 
 mat-form-field .mat-form-field-outline {
-  border-color: #4da6ff !important;
+  border-color: var(--primary-color) !important;
 }
 
 mat-form-field .mat-form-field-outline-thick {
@@ -99,7 +98,7 @@ mat-form-field .mat-form-field-outline-thick {
 }
 
 mat-label {
-  color: #4da6ff !important;
+  color: var(--primary-color) !important;
 }
 
 ::placeholder {

@@ -1,36 +1,62 @@
-<mat-toolbar class="toolbar" [ngClass]="{ scrolled: scrolled }">
-  <!-- Logo Section -->
-  <div class="logo-section">
-    <button mat-icon-button routerLink="/" aria-label="Home">
-      <img src="m.ico" alt="Logo" class="logo"/>
-    </button>
+<header class="toolbar-nav" [class.scrolled]="scrolled">
+  <div class="nav-inner-container">
+    <!-- Brand / Logo -->
+    <a routerLink="/" class="brand-link" aria-label="Mohamed Hassouna Home">
+      <div class="brand-badge">
+        <span>MH</span>
+      </div>
+      <span class="brand-text">M. Hassouna</span>
+    </a>
+
+    <!-- Center Floating Pill Menu (Desktop) -->
+    <nav class="nav-pill" *ngIf="!isMobile">
+      <a routerLink="/" routerLinkActive="active-pill" [routerLinkActiveOptions]="{ exact: true }" class="pill-link">Home</a>
+      <a routerLink="/projects" routerLinkActive="active-pill" class="pill-link">Projects</a>
+      <a routerLink="/skills" routerLinkActive="active-pill" class="pill-link">Skills</a>
+      <a (click)="scrollToExperience($event)" class="pill-link cursor-pointer">Experience</a>
+      <a routerLink="/contact" routerLinkActive="active-pill" class="pill-link">Contact</a>
+    </nav>
+
+    <!-- Right Actions -->
+    <div class="nav-actions">
+      <!-- Dark / Light Mode Button -->
+      <button 
+        type="button"
+        class="theme-toggle-btn"
+        (click)="toggleDarkMode()" 
+        [attr.aria-label]="isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'"
+        [title]="isDarkMode ? 'Light Mode' : 'Dark Mode'">
+        <i class="fa-solid" [ngClass]="isDarkMode ? 'fa-sun' : 'fa-moon'"></i>
+      </button>
+
+      <!-- Let's Talk CTA button -->
+      <a routerLink="/contact" class="lets-talk-btn">
+        <span>Let's Talk</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button 
+        *ngIf="isMobile" 
+        type="button" 
+        class="mobile-toggle-btn" 
+        (click)="toggleMenu()" 
+        aria-label="Toggle navigation menu">
+        <i class="fa-solid" [ngClass]="showMobileMenu ? 'fa-xmark' : 'fa-bars'"></i>
+      </button>
+    </div>
   </div>
 
-  <!-- Desktop Nav -->
-  <nav class="nav-links" *ngIf="!isMobile">
-    <a mat-button routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-    <a mat-button routerLink="/projects" routerLinkActive="active-link">Projects</a>
-    <a mat-button routerLink="/skills" routerLinkActive="active-link">Skills</a>
-    <a mat-button routerLink="/contact" routerLinkActive="active-link">Contact</a>
-    <button mat-icon-button (click)="toggleDarkMode()" aria-label="Toggle Theme" class="theme-toggle">
-      <i class="fa-solid" [ngClass]="isDarkMode ? 'fa-sun' : 'fa-moon'"></i>
-    </button>
-  </nav>
-
-  <!-- Mobile Nav -->
-  <div class="mobile-controls" *ngIf="isMobile">
-    <button mat-icon-button (click)="toggleDarkMode()" aria-label="Toggle Theme" class="theme-toggle" style="margin-right: 8px;">
-      <i class="fa-solid" [ngClass]="isDarkMode ? 'fa-sun' : 'fa-moon'"></i>
-    </button>
-    <button mat-icon-button (click)="toggleMenu()" aria-label="Menu Toggle">
-      <mat-icon>{{ showMobileMenu ? 'close' : 'menu' }}</mat-icon>
-    </button>
+  <!-- Mobile Dropdown -->
+  <div class="mobile-drawer" *ngIf="showMobileMenu && isMobile">
+    <a routerLink="/" (click)="toggleMenu()" routerLinkActive="active-pill" [routerLinkActiveOptions]="{ exact: true }" class="mobile-nav-link">Home</a>
+    <a routerLink="/projects" (click)="toggleMenu()" routerLinkActive="active-pill" class="mobile-nav-link">Projects</a>
+    <a routerLink="/skills" (click)="toggleMenu()" routerLinkActive="active-pill" class="mobile-nav-link">Skills</a>
+    <a (click)="scrollToExperience($event)" class="mobile-nav-link">Experience</a>
+    <a routerLink="/contact" (click)="toggleMenu()" routerLinkActive="active-pill" class="mobile-nav-link">Contact</a>
+    <a routerLink="/contact" (click)="toggleMenu()" class="mobile-talk-btn">
+      <span>Let's Talk</span>
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
   </div>
-
-  <div class="mobile-menu" *ngIf="showMobileMenu && isMobile">
-    <a mat-button routerLink="/" (click)="toggleMenu()" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-    <a mat-button routerLink="/projects" (click)="toggleMenu()" routerLinkActive="active-link">Projects</a>
-    <a mat-button routerLink="/skills" (click)="toggleMenu()" routerLinkActive="active-link">Skills</a>
-    <a mat-button routerLink="/contact" (click)="toggleMenu()" routerLinkActive="active-link">Contact</a>
-  </div>
-</mat-toolbar>
+</header>

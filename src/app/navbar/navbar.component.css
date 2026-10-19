@@ -1,168 +1,294 @@
-/* Root Navbar Styles */
-.toolbar {
+/* Navbar Wrapper */
+.toolbar-nav {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   z-index: 1000;
+  padding: 1.1rem 3.5rem;
+  background: transparent;
+  transition: all 0.35s ease;
+}
+
+.toolbar-nav.scrolled {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: none;
+  box-shadow: none;
+  padding: 0.85rem 3.5rem;
+}
+
+/* Light mode scrolled */
+[data-theme="light"] .toolbar-nav.scrolled {
+  background: transparent;
+  border-bottom: none;
+  box-shadow: none;
+}
+
+.nav-inner-container {
+  max-width: 1380px;
+  margin: 0 auto;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  padding: 0 5rem;
-  height: 80px;
-  background-color: rgba(128, 128, 128, 0.1);
-  border-bottom: 1px solid var(--border-color);
-  box-shadow: var(--card-shadow);
-  transition: all 0.4s ease-in-out, background-color 0.3s ease;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  gap: 1.5rem;
+  width: 100%;
 }
 
-/* When scrolling */
-.toolbar.scrolled {
-  background-color: rgba(0, 0, 0, 0.5);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(20px);
-}
-
-/* Logo Section */
-.logo-section {
+/* Brand Link */
+.brand-link {
   display: flex;
   align-items: center;
-  gap: 0.3rem;
-}
-
-.logo-section button {
-  display: flex;
-  align-items: center;
-  background: none;
-  border: none;
-}
-
-.logo {
-  width: 56px;
-  height: 56px;
-  object-fit: contain;
-}
-
-.m, .h {
-  font-size: 3rem;
-  font-weight: 800;
-  font-family: 'Segoe UI', sans-serif;
-  transition: transform 0.4s ease;
-}
-
-.m {
-  color: var(--text-primary);
-}
-
-.h {
-  color: var(--primary-color); 
-  margin-left: -8px;
-}
-
-.logo-section button:hover .m,
-.logo-section button:hover .h {
-  transform: scale(1.1) rotate(2deg);
-}
-
-/* Desktop Navigation */
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-}
-
-.nav-links a,
-.mobile-menu a {
-  color: var(--text-secondary);
-  font-weight: 500; /* semi-bold */
-  font-size: 1rem; /* readable size */
-  letter-spacing: 0.5px;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
+  gap: 0.85rem;
   text-decoration: none;
-  transition: color 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
-.nav-links a:hover,
-.mobile-menu a:hover {
-  color: var(--text-primary);
-  background: var(--surface-hover);
-  transform: scale(1.03);
-}
-
-/* Active link styling */
-.active-link {
-  color: var(--text-primary);
-  font-weight: 600;
-  border-bottom: 2px solid var(--primary-color);
-}
-
-
-.active-link {
-  background: rgba(255, 255, 255, 0.2);
-  font-weight: 600;
-}
-
-/* Mobile */
-.mobile-controls {
+.brand-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(0, 210, 255, 0.06);
+  border: 1.8px solid #00d2ff;
+  box-shadow: 0 0 16px rgba(0, 210, 255, 0.4), inset 0 0 10px rgba(0, 210, 255, 0.2);
   display: flex;
   align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #00d2ff;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
 }
 
-.mobile-menu {
-  position: fixed;
-  top: 64px;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(10px);
+.brand-link:hover .brand-badge {
+  transform: scale(1.05);
+  box-shadow: 0 0 22px rgba(0, 210, 255, 0.6), inset 0 0 12px rgba(0, 210, 255, 0.35);
+}
+
+[data-theme="light"] .brand-badge {
+  background: rgba(2, 132, 199, 0.08);
+  border-color: #0284c7;
+  color: #0284c7;
+  box-shadow: 0 0 16px rgba(2, 132, 199, 0.25);
+}
+
+.brand-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+}
+
+/* Center Floating Pill Navigation */
+.nav-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  background: var(--pill-bg);
+  border: 1px solid var(--pill-border);
+  padding: 5px 6px;
+  border-radius: 9999px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--card-shadow);
+}
+
+.pill-link {
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 7px 18px;
+  border-radius: 9999px;
+  transition: all 0.25s ease;
+  user-select: none;
+  cursor: pointer;
+}
+
+.pill-link:hover {
+  color: var(--text-primary);
+  background: var(--pill-active-bg);
+}
+
+.pill-link.active-pill {
+  color: var(--pill-active-text);
+  background: var(--pill-active-bg);
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* Nav Actions */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+/* Dark / Light Mode Button */
+.theme-toggle-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
+}
+
+[data-theme="light"] .theme-toggle-btn {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(0, 210, 255, 0.12);
+  border-color: #00d2ff;
+  color: #00d2ff;
+  transform: rotate(20deg) scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+}
+
+/* Let's Talk CTA button */
+.lets-talk-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.6rem 1.35rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #00d2ff 0%, #0284c7 100%);
+  color: #030712;
+  font-weight: 700;
+  font-size: 0.92rem;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(0, 210, 255, 0.38);
+  transition: all 0.3s ease;
+  letter-spacing: -0.2px;
+}
+
+.lets-talk-btn i {
+  font-size: 0.82rem;
+  transition: transform 0.25s ease;
+}
+
+.lets-talk-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0, 210, 255, 0.6);
+  filter: brightness(1.06);
+}
+
+.lets-talk-btn:hover i {
+  transform: translateX(3px);
+}
+
+/* Mobile Toggle */
+.mobile-toggle-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: var(--card-shadow);
+}
+
+.mobile-toggle-btn:hover {
+  background: var(--surface-hover);
+  color: var(--primary-color);
+}
+
+/* Mobile Drawer */
+.mobile-drawer {
+  margin-top: 1rem;
+  background: var(--surface-color);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.2rem;
   display: flex;
   flex-direction: column;
-  padding: 1rem;
-  z-index: 999;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  gap: 0.6rem;
+  box-shadow: var(--card-shadow-hover);
+  animation: slideDown 0.3s ease;
 }
 
-.mobile-menu a {
-  padding: 1rem;
-  color: white;
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-nav-link {
+  text-decoration: none;
+  font-size: 1rem;
   font-weight: 500;
-  border-radius: 6px;
-  transition: background 0.3s ease;
+  color: var(--text-secondary);
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  transition: all 0.2s ease;
 }
 
-.mobile-menu a:hover {
-  background: rgba(255, 255, 255, 0.1);
+.mobile-nav-link:hover,
+.mobile-nav-link.active-pill {
+  color: var(--text-primary);
+  background: var(--pill-active-bg);
+}
+
+.mobile-talk-btn {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #00d2ff 0%, #0284c7 100%);
+  color: #030712;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-  .toolbar {
-    padding: 0 1rem;
+@media (max-width: 1024px) {
+  .toolbar-nav,
+  .toolbar-nav.scrolled {
+    padding: 0.9rem 1.8rem;
+  }
+}
+
+@media (max-width: 860px) {
+  .toolbar-nav,
+  .toolbar-nav.scrolled {
+    padding: 0.8rem 1.2rem;
   }
 
-  .nav-links {
+  .nav-pill {
     display: none;
   }
-}
 
-@media (max-width: 480px) {
-  .logo {
-    width: 48px;
-    height: 48px;
+  .lets-talk-btn {
+    display: none;
   }
-
-  .m, .h {
-    font-size: 1.3rem;
-  }
-}
-
-.theme-toggle {
-  color: var(--text-primary);
-  transition: transform 0.3s ease;
-}
-.theme-toggle:hover {
-  transform: scale(1.1);
-  color: var(--primary-color);
 }
