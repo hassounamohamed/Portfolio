@@ -2,13 +2,28 @@
   <h1><i class="fa-solid fa-laptop-code"></i> My Projects</h1>
   <p class="projects-subtitle">From concept to creation, every project tells a story of innovation, creativity, and purpose — explore them here!</p>
 
-  <div class="project-container">
+  <!-- Skeleton Loader (shown while images load) -->
+  <div class="project-container" *ngIf="!imagesLoaded">
+    <div class="project-card skeleton-card" *ngFor="let i of [1,2,3,4,5,6]">
+      <div class="skeleton skeleton-img"></div>
+      <div class="skeleton skeleton-title"></div>
+      <div class="skeleton skeleton-text"></div>
+      <div class="skeleton skeleton-text short"></div>
+      <div class="skeleton-tags">
+        <div class="skeleton skeleton-tag"></div>
+        <div class="skeleton skeleton-tag"></div>
+        <div class="skeleton skeleton-tag"></div>
+      </div>
+    </div>
+  </div>
 
+  <!-- Real Content -->
+  <div class="project-container" [class.hidden]="!imagesLoaded">
 
     <div class="project-card">
-  <img src="barberhkk.png" alt="Barber HKK" loading="lazy">
+      <img src="barberhkk.webp" alt="Barber HKK" width="600" height="240" loading="eager" (load)="onImageLoad()" (error)="onImageError($event)">
       <h2>Barber HKK</h2>
-      <p>Modern, fast, and responsive showcase website for a men’s barbershop in Tunisia.</p>
+      <p>Modern, fast, and responsive showcase website for a men's barbershop in Tunisia.</p>
       <div class="tech-stack">
         <span>Next.js</span>
         <span>TypeScript</span>
@@ -21,18 +36,13 @@
       <a href="https://github.com/hassounamohamed/barbier-site" target="_blank" class="social-link" aria-label="GitHub Repository">
         <i class="fab fa-github"></i>
       </a>
-
       <a href="https://barberhkk.vercel.app" target="_blank" class="social-link" aria-label="Live demo">
         <i class="fa-solid fa-arrow-up-right-from-square"></i>
       </a>
     </div>
 
-
-
-  
-
-     <div class="project-card">
-  <img src="flowpilot.png" alt="Flowpilot" loading="lazy">
+    <div class="project-card">
+      <img src="flowpilot.webp" alt="Flowpilot" width="600" height="240" loading="lazy" (load)="onImageLoad()" (error)="onImageError($event)">
       <h2>Flowpilot.tn</h2>
       <p>A complete software testing management platform for Agile teams, integrating artificial intelligence to optimize QA processes.</p>
       <div class="tech-stack">
@@ -49,14 +59,13 @@
       <a href="https://github.com/Plateforme-Intelligente-Tests-Logiciels/Plateforme-Intelligente-Tests-Logiciels" target="_blank" class="social-link" aria-label="GitHub Repository">
         <i class="fab fa-github"></i>
       </a>
-
       <a href="https://flowpilot.tn" target="_blank" class="social-link" aria-label="Live demo">
         <i class="fa-solid fa-arrow-up-right-from-square"></i>
       </a>
     </div>
 
-   <div class="project-card">
-  <img src="/CV Builder Pro.png" alt="CV Builder Pro" loading="lazy">
+    <div class="project-card">
+      <img src="/CV Builder Pro.webp" alt="CV Builder Pro" width="600" height="240" loading="lazy" (load)="onImageLoad()" (error)="onImageError($event)">
       <h2>CV Builder Pro</h2>
       <p>Create Professional Resumes in Minutes Build stunning, ATS-friendly resumes with our intuitive drag-and-drop builder. Stand out from the crowd and land your dream job.</p>
       <div class="tech-stack">
@@ -70,15 +79,13 @@
       <a href="https://github.com/hassounamohamed/CV-Builder-Pro" target="_blank" class="social-link" aria-label="GitHub Repository">
         <i class="fab fa-github"></i>
       </a>
-
       <a href="https://cv-builder-pro-ochre.vercel.app" target="_blank" class="social-link" aria-label="Live demo">
         <i class="fa-solid fa-arrow-up-right-from-square"></i>
       </a>
     </div>
 
-
-     <div class="project-card">
-  <img src="/flowpilotmobile.png" alt="Flowpilot Mobile" loading="lazy">
+    <div class="project-card">
+      <img src="/flowpilotmobile.webp" alt="Flowpilot Mobile" width="600" height="240" loading="lazy" (load)="onImageLoad()" (error)="onImageError($event)">
       <h2>Flowpilot Mobile</h2>
       <p>A mobile application for managing software testing processes.</p>
       <div class="tech-stack">
@@ -93,29 +100,23 @@
       </a>
     </div>
 
-
-     <div class="project-card">
-  <img src="covid-tunisia-analysis.png" alt="COVID-19 Tunisia Data Analysis" loading="lazy">
+    <div class="project-card">
+      <img src="covid-tunisia-analysis.webp" alt="COVID-19 Tunisia Data Analysis" width="600" height="240" loading="lazy" (load)="onImageLoad()" (error)="onImageError($event)">
       <h2>COVID-19 Tunisia Data Analysis</h2>
-      <p>This project analyzes COVID-19 data in Tunisia .
+      <p>This project analyzes COVID-19 data in Tunisia.
 It includes hospital bed capacity by city and COVID-19 cases evolution.</p>
       <div class="tech-stack">
         <span>Python</span>
         <span>Pandas</span>
         <span>CSV Data</span>
-      
       </div>
       <a href="https://github.com/hassounamohamed/covid-tunisia-analysis" target="_blank" class="social-link" aria-label="GitHub Repository">
         <i class="fab fa-github"></i>
       </a>
     </div>
 
-
-
-
-
     <div class="project-card">
-  <img src="/Elegancia.png" alt="Elegancia" loading="lazy">
+      <img src="/Elegancia.webp" alt="Elegancia" width="600" height="240" loading="lazy" (load)="onImageLoad()" (error)="onImageError($event)">
       <h2>Elegancia</h2>
       <p>A modern e-commerce platform for showcasing and selling elegant fashion items.</p>
       <div class="tech-stack">
@@ -127,15 +128,13 @@ It includes hospital bed capacity by city and COVID-19 cases evolution.</p>
       <a href="https://github.com/hassounamohamed/Elegancia" target="_blank" class="social-link" aria-label="GitHub Repository">
         <i class="fab fa-github"></i>
       </a>
-
       <a href="https://elegancia-eight.vercel.app" target="_blank" class="social-link" aria-label="Live demo">
         <i class="fa-solid fa-arrow-up-right-from-square"></i>
       </a>
     </div>
 
-
     <div class="project-card">
-  <img src="/quickcut.png" alt="QuickCut" loading="lazy">
+      <img src="/quickcut.webp" alt="QuickCut" width="600" height="240" loading="lazy" (load)="onImageLoad()" (error)="onImageError($event)">
       <h2>QuickCut</h2>
       <p>Barber booking app that allows users to reserve haircuts and avoid waiting lines.</p>
       <div class="tech-stack">
@@ -151,49 +150,39 @@ It includes hospital bed capacity by city and COVID-19 cases evolution.</p>
       </a>
     </div>
 
-
- 
-
-
-
-       <div class="project-card">
-  <img src="fingerprint.png" alt="Fingerprint Lock Screen" loading="lazy">
+    <div class="project-card">
+      <img src="fingerprint.webp" alt="Fingerprint Lock Screen" width="600" height="240" loading="lazy" (load)="onImageLoad()" (error)="onImageError($event)">
       <h2>Fingerprint Lock Screen</h2>
-      <p>A Fingerprint Lock Screen Android App .</p>
+      <p>A Fingerprint Lock Screen Android App.</p>
       <div class="tech-stack">
         <span>Kotlin</span>
         <span>Jetpack Compose</span>
         <span>Material 3</span>
         <span>BiometricPrompt API</span>
-        <span>AndroidX Libraries</span>      
+        <span>AndroidX Libraries</span>
       </div>
       <a href="https://github.com/hassounamohamed/Fingerprint-Lock-Screen" target="_blank" class="social-link" aria-label="GitHub Repository">
         <i class="fab fa-github"></i>
       </a>
     </div>
 
-         <div class="project-card">
-  <img src="Weather-App.png" alt="Weather-App" loading="lazy">
+    <div class="project-card">
+      <img src="Weather-App.webp" alt="Weather-App" width="600" height="240" loading="lazy" (load)="onImageLoad()" (error)="onImageError($event)">
       <h2>Weather App</h2>
-      <p>A Weather App Android App .</p>
+      <p>A Weather App Android App.</p>
       <div class="tech-stack">
         <span>Flutter</span>
         <span>Dart</span>
         <span>OpenWeather API</span>
         <span>Lottie Animations</span>
-            
       </div>
       <a href="https://github.com/hassounamohamed/Weather-App" target="_blank" class="social-link" aria-label="GitHub Repository">
         <i class="fab fa-github"></i>
       </a>
     </div>
 
-
-
-
-
-      <div class="project-card">
-  <img src="/homenest.png" alt="Home Rental" loading="lazy">
+    <div class="project-card">
+      <img src="/homenest.webp" alt="Home Rental" width="600" height="240" loading="lazy" (load)="onImageLoad()" (error)="onImageError($event)">
       <h2>Home Rental</h2>
       <p>A platform for renting homes with a user-friendly interface and comprehensive property listings.</p>
       <div class="tech-stack">
@@ -202,21 +191,14 @@ It includes hospital bed capacity by city and COVID-19 cases evolution.</p>
         <span>Firebase</span>
         <span>TypeScript</span>
         <span>Cloud Firestore</span>
-      
       </div>
       <a href="https://github.com/hassounamohamed/Services-Immobilier" target="_blank" class="social-link" aria-label="GitHub Repository">
         <i class="fab fa-github"></i>
       </a>
     </div>
 
-
-
-
-
-
-
     <div class="project-card">
-  <img src="/HOME.png" alt="Patient System" loading="lazy">
+      <img src="/HOME.webp" alt="Patient System" width="600" height="240" loading="lazy" (load)="onImageLoad()" (error)="onImageError($event)">
       <h2>Patient Follow-Up System</h2>
       <p>An application designed to improve patient management and the analysis of medical performance within a healthcare facility.</p>
       <div class="tech-stack">
@@ -233,7 +215,7 @@ It includes hospital bed capacity by city and COVID-19 cases evolution.</p>
     </div>
 
     <div class="project-card">
-  <img src="/Study.png" alt="Study with me" loading="lazy">
+      <img src="/Study.webp" alt="Study with me" width="600" height="240" loading="lazy" (load)="onImageLoad()" (error)="onImageError($event)">
       <h2>Study with Me</h2>
       <p>NovaUni is a modern educational platform combining AI, quizzes, and interactive learning tools for a better learning experience.</p>
       <div class="tech-stack">
@@ -248,7 +230,7 @@ It includes hospital bed capacity by city and COVID-19 cases evolution.</p>
     </div>
 
     <div class="project-card">
-  <img src="/moodify.png" alt="Moodify" loading="lazy">
+      <img src="/moodify.webp" alt="Moodify" width="600" height="240" loading="lazy" (load)="onImageLoad()" (error)="onImageError($event)">
       <h2>Moodify</h2>
       <p>Moodify – A music platform tailored to your mood with Artificial Intelligence.</p>
       <div class="tech-stack">
@@ -267,14 +249,15 @@ It includes hospital bed capacity by city and COVID-19 cases evolution.</p>
     </div>
 
   </div>
-<div class="github-section">
-  <a href="https://github.com/hassounamohamed" target="_blank" class="github-card">
-    <i class="fab fa-github"></i>
-    <div class="github-text">
-      <p>Discover more projects on</p>
-      <h2>My GitHub</h2>
-    </div>
-  </a>
-</div>
+
+  <div class="github-section">
+    <a href="https://github.com/hassounamohamed" target="_blank" class="github-card">
+      <i class="fab fa-github"></i>
+      <div class="github-text">
+        <p>Discover more projects on</p>
+        <h2>My GitHub</h2>
+      </div>
+    </a>
+  </div>
 
 </section>

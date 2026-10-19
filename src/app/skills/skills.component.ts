@@ -1,43 +1,34 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.css'],
-  imports: []
+  imports: [CommonModule]
 })
-export class SkillsComponent {
-  skills = [
-    {
-      img: 'assets/html5.png',
-      title: 'HTML5',
-      desc: 'Semantic markup and best practices.'
-    },
-    {
-      img: 'assets/css3.png',
-      title: 'CSS3',
-      desc: 'Responsive design, Flexbox, Grid.'
-    },
-    {
-      img: 'assets/js.png',
-      title: 'JavaScript',
-      desc: 'ES6+, DOM, and modern tooling.'
-    },
-    {
-      img: 'assets/angular.png',
-      title: 'Angular',
-      desc: 'Component-based architecture.'
-    },
-    {
-      img: 'assets/python.png',
-      title: 'Python',
-      desc: 'Scripting, data analysis, backend.'
-    },
-    {
-      img: 'assets/git.png',
-      title: 'Git',
-      desc: 'Version control & collaboration.'
+export class SkillsComponent implements OnInit {
+  imagesLoaded = false;
+  loadedCount = 0;
+  totalImages = 5; // total certificate images
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.imagesLoaded = true;
+    }, 3000);
+  }
+
+  onImageLoad() {
+    this.loadedCount++;
+    if (this.loadedCount >= this.totalImages) {
+      this.imagesLoaded = true;
     }
-  ];
+  }
+
+  onImageError(event: Event) {
+    this.loadedCount++;
+    if (this.loadedCount >= this.totalImages) {
+      this.imagesLoaded = true;
+    }
+  }
 }

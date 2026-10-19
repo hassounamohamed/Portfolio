@@ -2,15 +2,29 @@
 
 <main class="container" role="main">
   <header>
-    <h1><i class="fa-solid fa-award"></i> Certificates & Badges</h1>
+    <h1><i class="fa-solid fa-award"></i> Certificates &amp; Badges</h1>
     <p>A collection of achievements showcasing my skills, expertise, and continuous learning journey.</p>
   </header>
 
-  <section class="cards" aria-label="Certificates list">
+  <!-- Skeleton Loader -->
+  <section class="cards" aria-label="Loading certificates" *ngIf="!imagesLoaded">
+    <article class="card skeleton-card" *ngFor="let i of [1,2,3,4,5]">
+      <div class="preview">
+        <div class="skeleton skeleton-cert-img"></div>
+      </div>
+      <div class="meta">
+        <div class="skeleton skeleton-cert-text"></div>
+        <div class="skeleton skeleton-cert-tag"></div>
+      </div>
+    </article>
+  </section>
+
+  <!-- Real Certificates -->
+  <section class="cards" aria-label="Certificates list" [class.hidden]="!imagesLoaded">
     <!-- Card 1 -->
     <article class="card">
       <div class="preview">
-  <img src="/cyber.png" alt="Cybersecurity Certificate" loading="lazy">
+        <img src="/cyber.webp" alt="Cybersecurity Certificate" width="400" height="280" loading="eager" (load)="onImageLoad()" (error)="onImageError($event)">
       </div>
       <div class="meta">
         <p>Introduction to Cybersecurity course!</p>
@@ -21,7 +35,7 @@
     <!-- Card 2 -->
     <article class="card">
       <div class="preview">
-  <img src="/python1.png" alt="Python Certificate 1" loading="lazy">
+        <img src="/python1.webp" alt="Python Certificate 1" width="400" height="280" loading="lazy" (load)="onImageLoad()" (error)="onImageError($event)">
       </div>
       <div class="meta">
         <p>Python Essentials 1</p>
@@ -32,7 +46,7 @@
     <!-- Card 3 -->
     <article class="card">
       <div class="preview">
-  <img src="/python2.png" alt="Python Certificate 2" loading="lazy">
+        <img src="/python2.webp" alt="Python Certificate 2" width="400" height="280" loading="lazy" (load)="onImageLoad()" (error)="onImageError($event)">
       </div>
       <div class="meta">
         <p>Python Essentials 2</p>
@@ -43,7 +57,7 @@
     <!-- Card 4 -->
     <article class="card">
       <div class="preview">
-  <img src="/python-essentials-1.1.png" alt="Python Essentials" loading="lazy">
+        <img src="/python-essentials-1.1.webp" alt="Python Essentials Badge" width="400" height="280" loading="lazy" (load)="onImageLoad()" (error)="onImageError($event)">
       </div>
       <div class="meta">
         <p>Badge Essentials 1</p>
@@ -54,7 +68,7 @@
     <!-- Card 5 -->
     <article class="card">
       <div class="preview">
-  <img src="/python-essentials2.png" alt="Python Essentials 2" loading="lazy">
+        <img src="/python-essentials2.webp" alt="Python Essentials 2 Badge" width="400" height="280" loading="lazy" (load)="onImageLoad()" (error)="onImageError($event)">
       </div>
       <div class="meta">
         <p>Badge Essentials 2</p>
@@ -64,9 +78,9 @@
   </section>
 
   <div class="section-description">
-    <strong>My Skills</strong> From frontend frameworks to backend systems, here’s the stack I use to craft functional and user-focused applications.
+    <strong>My Skills</strong> From frontend frameworks to backend systems, here's the stack I use to craft functional and user-focused applications.
   </div>
-  
+
   <div class="skills-grid-container">
     <div class="frontend">
       <h2><i class="fa-solid fa-desktop"></i> Frontend</h2>
@@ -82,7 +96,7 @@
       </div>
     </div>
     <div class="backend">
-      <h2><i class="fa-solid fa-server"></i> Backend & Mobile</h2>
+      <h2><i class="fa-solid fa-server"></i> Backend &amp; Mobile</h2>
       <div class="skills-grid">
         <div class="skill-item"><i class="fa-brands fa-php"></i>PHP</div>
         <div class="skill-item"><i class="fa-brands fa-symfony"></i>Symfony</div>
@@ -95,7 +109,7 @@
       </div>
     </div>
     <div class="tools">
-      <h2><i class="fa-solid fa-wrench"></i> Tools & DevOps</h2>
+      <h2><i class="fa-solid fa-wrench"></i> Tools &amp; DevOps</h2>
       <div class="skills-grid">
         <div class="skill-item"><i class="fa-brands fa-docker"></i>Docker</div>
         <div class="skill-item"><i class="fa-brands fa-git-alt"></i>Git</div>
@@ -107,4 +121,3 @@
     </div>
   </div>
 </main>
-
